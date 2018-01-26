@@ -3,4 +3,9 @@
 <%= link_to "Back to List", admin_tasks_path %>
 
 <%= @task.name %><br/>
-<%= @task.description %>
+<%= @task.description %><br/>
+
+Solutions<br/>
+<table>
+<%= render @task.solutions.presence || "empty_list" %>
+</table>

@@ -30,7 +30,7 @@ module Admin
     end
 
     def destroy
-      @task.delete
+      @task.destroy
 
       redirect_to admin_tasks_path, notice: "Task deleted"
     end
@@ -38,7 +38,7 @@ module Admin
     private
 
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, solutions_attributes: [:id, :input, :output, :_destroy])
     end
 
     def new_task

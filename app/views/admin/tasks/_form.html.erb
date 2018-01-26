@@ -1,15 +1,30 @@
-<%= form_for([:admin, task]) do |f| %>
-  <%= form_errors_for task %>
-  <p>
-    <b>task name</b><br>
+<%= form_for [:admin, task] do |f| %>
+  <%= render 'shared/errors', object: task %>
+
+  <div>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <b>description name</b><br>
+  </div>
+
+  <div>
+    <%= f.label :description %>
     <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-    <%= link_to 'Cancel', admin_tasks_path %>
-  </p>
+  </div>
+
+  <div>
+    <p><strong>Solutions:</strong></p>
+
+    <div id="solutions">
+      <%= f.fields_for :solutions do |solution| %>
+        <%= render 'solution_fields', f: solution %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add solution', f, :solutions %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit %>
+  <%= link_to 'Cancel', admin_tasks_path %>
 <% end %>

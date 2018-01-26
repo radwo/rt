@@ -33,11 +33,18 @@ RSpec.describe "admin tasks page", type: :request do
   end
 
   it "deletes task" do
-    task = FactoryBot.create(:task)
+    task = FactoryBot.create(:task_with_solutions)
     visit "/admin/tasks/#{task.id}"
 
     click_link 'Remove Task'
 
     expect(page).to have_content 'Task deleted'
+  end
+
+  it "displays solutions on task" do
+    task = FactoryBot.create(:task_with_solutions)
+    visit "/admin/tasks/#{task.id}"
+
+    expect(page).to have_content(task.solutions.sample.input)
   end
 end
