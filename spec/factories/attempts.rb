@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :attempt do
-    code "MyText"
+    code Faker::Lorem.paragraph
     final false
-    task ""
+    task
   end
 end
