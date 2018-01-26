@@ -1,0 +1,32 @@
+/* reset */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, fieldset, form, div {
+  margin: 0;
+  padding: 0;
+}
+
+address, blockquote, dl, h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+html, body, fieldset, form, input, select, textarea {
+  font: 100%/120% Lato, Roboto, Ubuntu, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: 600;
+}
+
+a:hover, a:active {
+  outline: none;
+}
+
+li {
+  list-style: none;
+}

@@ -1,0 +1,4 @@
+<%= link_to 'New Task', new_admin_task_path %>
+<table>
+  <%= render @tasks.presence|| "empty_list" %>
+</table>

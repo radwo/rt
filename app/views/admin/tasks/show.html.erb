@@ -1,0 +1,6 @@
+<%= link_to 'Edit Task', edit_admin_task_path(@task) %>
+<%= link_to "Remove Task", admin_task_path(@task), method: :delete, data: { confirm: "You sure?" } %>
+<%= link_to "Back to List", admin_tasks_path %>
+
+<%= @task.name %><br/>
+<%= @task.description %>

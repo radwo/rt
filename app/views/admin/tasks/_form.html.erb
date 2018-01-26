@@ -1,0 +1,11 @@
+<%= form_for([:admin, task]) do |f| %>
+  <%= form_errors_for task %>
+  <p>
+    <b>task name</b><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+    <%= link_to 'Cancel', admin_tasks_path %>
+  </p>
+<% end %>
