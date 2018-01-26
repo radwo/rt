@@ -1,0 +1,10 @@
+<%= link_to 'Start Task', new_task_attempt_path(@task) %>
+<%= link_to "Back to List", tasks_path %>
+
+<%= @task.name %><br/>
+<%= @task.description %><br/>
+
+Attempts<br/>
+<table>
+<%= render @task.attempts.presence || "empty_list" %>
+</table>
