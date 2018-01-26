@@ -15,7 +15,7 @@ module Admin
       if @task.update(task_params)
         @task.save
 
-        redirect_to admin_tasks_path
+        redirect_to admin_tasks_path, notice: "Task created"
       else
         render :new
       end
@@ -23,7 +23,7 @@ module Admin
 
     def update
       if @task.update(task_params)
-        redirect_to admin_task_path(@task)
+        redirect_to admin_task_path(@task), notice: "Task updated"
       else
         render :edit
       end
@@ -32,13 +32,13 @@ module Admin
     def destroy
       @task.delete
 
-      redirect_to admin_tasks_path
+      redirect_to admin_tasks_path, notice: "Task deleted"
     end
 
     private
 
     def task_params
-      params.require(:task).permit(:name)
+      params.require(:task).permit(:name, :description)
     end
 
     def new_task
