@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   root to: "tasks#index"
+  get "admin", to: "admin/tasks#index"
 end
