@@ -215,6 +215,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   childprocess
   cocoon
+  coderay
   coffee-rails (~> 4.2)
   factory_bot_rails
   faker

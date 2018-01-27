@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :task do
     name Faker::App.name
     description Faker::Lorem.paragraph
+    template Faker::Lorem.paragraph
 
     factory :task_with_attempts do
       transient do

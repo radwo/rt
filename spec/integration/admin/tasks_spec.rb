@@ -26,6 +26,7 @@ RSpec.describe "admin tasks page", type: :request do
     within("#new_task") do
       fill_in 'task_name', with: 'New Task'
       fill_in 'task_description', with: 'Description'
+      fill_in 'task_template', with: 'Template'
     end
     click_button 'Create Task'
 

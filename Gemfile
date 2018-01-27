@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem "cocoon"
 gem 'jquery-rails'
 gem 'childprocess'
+gem 'coderay'
 
 group :development, :test do
   gem 'pry'

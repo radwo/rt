@@ -38,7 +38,7 @@ module Admin
     private
 
     def task_params
-      params.require(:task).permit(:name, :description, solutions_attributes: [:id, :input, :output, :_destroy])
+      params.require(:task).permit(:name, :description, :template, solutions_attributes: [:id, :input, :output, :_destroy])
     end
 
     def new_task
