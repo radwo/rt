@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180127152834) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attempts", force: :cascade do |t|
     t.text "code"
     t.boolean "final"
-    t.integer "task_id"
+    t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_attempts_on_task_id"
@@ -25,14 +28,14 @@ ActiveRecord::Schema.define(version: 20180127152834) do
     t.string "expected"
     t.string "output"
     t.boolean "done"
-    t.integer "attempt_id"
+    t.bigint "attempt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["attempt_id"], name: "index_results_on_attempt_id"
   end
 
   create_table "solutions", force: :cascade do |t|
-    t.integer "task_id"
+    t.bigint "task_id"
     t.string "input"
     t.string "output"
     t.datetime "created_at", null: false
@@ -48,4 +51,5 @@ ActiveRecord::Schema.define(version: 20180127152834) do
     t.text "template"
   end
 
+  add_foreign_key "results", "attempts"
 end
