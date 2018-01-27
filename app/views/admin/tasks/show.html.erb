@@ -4,6 +4,7 @@
 
 <%= @task.name %><br/>
 <%= @task.description %><br/>
+<%= CodeRay.scan(@task.template, :c).div.html_safe %>
 
 Solutions<br/>
 <table>
