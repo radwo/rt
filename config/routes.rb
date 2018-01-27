@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :tasks, only: [:index, :show] do
     resources :attempts, only: [:new, :create, :show]
   end
+
+  root to: "tasks#index"
 end
