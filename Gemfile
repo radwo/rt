@@ -37,6 +37,7 @@ gem "cocoon"
 gem 'jquery-rails'
 gem 'childprocess'
 gem 'coderay'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry'

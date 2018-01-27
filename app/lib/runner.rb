@@ -1,13 +1,15 @@
 require 'childprocess'
 require 'tempfile'
-require 'pry'
 
 class Runner
+  TIMEOUT = 30
+
   def initialize(program_content)
     @program_content = program_content
   end
 
   def run
+    @start_at = Time.now
     process.start
   end
 
@@ -23,8 +25,8 @@ class Runner
     process.exit_code.zero?
   end
 
-  def abort
-    process.stop
+  def abort_if_too_long
+    process.stop if too_long?
   end
 
   private
@@ -40,10 +42,10 @@ class Runner
   def runner_file
     @runner ||= Tempfile.new("runner").tap { |runner|
       runner.chmod(0700)
-      runner.puts %|#!/bin/bash|
-      runner.puts %|cd #{File.dirname(program_file)}|
-      runner.puts %|gcc -o task #{File.basename(program_file)}|
-      runner.puts %|./task|
+      runner.puts %(#!/bin/bash)
+      runner.puts %(cd #{File.dirname(program_file)})
+      runner.puts %(gcc -o task #{File.basename(program_file)})
+      runner.puts %(./task)
       runner.close
     }
   end
@@ -60,5 +62,13 @@ class Runner
 
   def result_file
     @result_file ||= Tempfile.new("result")
+  end
+
+  def too_long?
+    Time.now - @start_at > timeout
+  end
+
+  def timeout
+    TIMEOUT
   end
 end
