@@ -2,11 +2,11 @@
 
 body {
   display: grid;
-  grid-template-columns: minmax(0, 0.5fr) minmax(240px, 1fr) minmax(240px, 1fr) minmax(300px, 400px) minmax(0, 0.5fr);
+  grid-template-columns: minmax(0, 0.5fr) minmax(240px, 1fr) minmax(240px, 1fr) minmax(0, 0.5fr);
   grid-template-rows: 4rem auto 1rem;
-  grid-template-areas:  ". .    ."
-                        ". main ."
-                        ". .    .";
+  grid-template-areas:  ". . . ."
+                        ". main main ."
+                        ". . . .";
 }
 
 main {

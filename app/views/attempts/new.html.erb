@@ -1,4 +1,11 @@
-<%= @task.name %><br/>
-<%= @task.description %><br/>
+<section class="attempt">
+  <div>
+    <h1><%= @task.name %></h1>
+    <%= simple_format(@task.description) %><br/>
+  </div>
 
-<%= render partial: "form", locals: { attempt: @attempt } %>
+  <div>
+    <h1>Code</h1>
+    <%= render partial: "form", locals: { attempt: @attempt } %>
+  </div>
+</section>

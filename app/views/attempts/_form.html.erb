@@ -1,10 +1,7 @@
 <%= form_for [:task, attempt] do |f| %>
   <%= render 'shared/errors', object: attempt %>
 
-  <div>
-    <%= f.label :code %>
-    <%= f.text_area :code %>
-  </div>
+  <%= f.text_area :code %>
 
   <%= f.submit %>
   <%= link_to 'Cancel', task_path(attempt.task) %>

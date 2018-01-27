@@ -1,5 +1,6 @@
-<%= @attempt.task.name %><br/>
-<%= @attempt.task.description %><br/>
-<%= @attempt.code %>
-<%= @attempt.status %>
+<h1><%= @attempt.task.name %></h1>
+<%= simple_format(@attempt.task.description) %>
+
+<%= CodeRay.scan(@attempt.code, :c).div.html_safe %>
+<p>status: <strong><%= @attempt.status %></strong></p>
 <%= link_to 'Back to Task', task_path(@attempt.task) %>
