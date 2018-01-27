@@ -1,3 +1,3 @@
 <tr>
-  <td><%= link_to attempt.created_at, task_attempt_path(attempt.task, attempt) %></td>
+  <td><%= link_to "#{attempt.created_at} #{attempt.status}", task_attempt_path(attempt.task, attempt) %></td>
 </tr>

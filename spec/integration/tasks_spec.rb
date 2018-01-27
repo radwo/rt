@@ -24,6 +24,6 @@ RSpec.describe "tasks page", type: :request do
     end
     click_button 'Create Attempt'
 
-    expect(page).to have_selector('table tr')
+    expect(page).to have_content('foo bar')
   end
 end
