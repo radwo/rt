@@ -1,0 +1,22 @@
+body {
+  background-color: whitesmoke;
+  color: #342F32;
+  line-height: 1.5rem;
+}
+
+main, aside {
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.attempt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 600px;
+}
